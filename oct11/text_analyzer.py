@@ -1,30 +1,41 @@
+import re
+
 def analyze(string):
-    properties = {
-        "vowels": 0,
-        "consonants": 0,
-        "whitespaces": 0,
-        "3_most_common_symbols": [],
-        "word_number": 0
-    }
     vowels = 'aeouiy'
     consonants = 'bcdfghjklmnpqrstvwxyz'
+
+    vowel_count = 0
+    consonant_count = 0
+    whitespace_count = 0
     symbols = {}
-    for char in string:
-        if char not in symbols:
-            symbols.update({char: 1})
-        else:
-            symbols[char] += 1
+
+    for char in string.lower():
+        symbols[char] = symbols.get(char, 0) + 1
+
         if char in vowels:
-            properties["vowels"] += 1
+            vowel_count += 1
         elif char in consonants:
-            properties["consonants"] += 1
-        elif char in " ":
-            properties["whitespaces"] += 1
+            consonant_count += 1
+        elif char.isspace():
+            whitespace_count += 1
+
     sorted_symbols = sorted(symbols.items(), key=lambda item: item[1], reverse=True)
-    print(f"Vowels: {properties["vowels"]}")
-    print(f"Consonants: {properties["consonants"]}")
-    print(f"Whitespaces: {properties["whitespaces"]}")
-    print(f"3 most common symbols: {sorted_symbols}")
+    top3 = ", ".join(f"{c} - {count} occurrences" for c, count in sorted_symbols[0:3])
+    word_count = len(re.findall(r"\b\w+\b", string))
+
+    print(f"Vowels: {vowel_count}")
+    print(f"Consonants: {consonant_count}")
+    print(f"Whitespaces: {whitespace_count}")
+
+    #Если некоторые символы втречаются одинаковое количество раз,
+    # выводятся те, что стоят первее
+    print(f"3 most common symbols: {top3}")
+
+    # Под словом подразумевается последовательность,
+    # которая состоит из 1 и более символов и которая
+    # может включать буквы в не зависимости от регистра,
+    # цифры и нижние подчёркивания
+    print(f"Number of words: {word_count}")
 
 
 def main():
