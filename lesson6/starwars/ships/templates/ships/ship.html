@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ ship.name }}</title>
+    <style>
+        body { font-family: Arial; background-color: #000; color: #ffe81f; text-align: center; }
+        .card { margin-top: 100px; padding: 30px; border: 2px solid #ffe81f; display: inline-block; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{{ ship.name }}</h1>
+        <p><strong>Model:</strong> {{ ship.model }}</p>
+        <p><strong>Manufacturer:</strong> {{ ship.manufacturer }}</p>
+        <p><strong>Length:</strong> {{ ship.length }}</p>
+        <p><strong>Crew:</strong> {{ ship.crew }}</p>
+        <p><strong>Passengers:</strong> {{ ship.passengers }}</p>
+    </div>
+</body>
+</html>
