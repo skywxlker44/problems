@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Characters</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            color: #ffe81f;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 3px),
+                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 4px);
+            background-size: 550px 550px, 350px 350px, 250px 250px;
+            background-position: 0 0, 40px 60px, 130px 270px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #ffe81f, 0 0 30px #ffe81f;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #ffe81f, 0 0 30px #ffe81f; }
+            to { text-shadow: 0 0 30px #ffe81f, 0 0 40px #ffe81f, 0 0 50px #ffe81f; }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .character-card {
+            background: rgba(255, 232, 31, 0.1);
+            border: 2px solid #ffe81f;
+            border-radius: 15px;
+            padding: 2rem;
+            text-decoration: none;
+            color: #ffe81f;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .character-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,232,31,0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+        }
+
+        .character-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 232, 31, 0.3);
+            background: rgba(255, 232, 31, 0.15);
+        }
+
+        .character-card:hover::before {
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        .character-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .character-link {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .lightsaber {
+            width: 100px;
+            height: 4px;
+            background: #ffe81f;
+            margin: 2rem auto;
+            border-radius: 2px;
+            box-shadow: 0 0 10px #ffe81f;
+            position: relative;
+        }
+
+        .lightsaber::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+
+            .characters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Star Wars</h1>
+            <div class="lightsaber"></div>
+            <p class="subtitle">Choose your destiny</p>
+        </div>
+
+        <div class="characters-grid">
+            <a href="/person/1/" class="character-card">
+                <div class="character-number">01</div>
+                <div class="character-link">Luke Skywalker</div>
+            </a>
+
+            <a href="/person/2/" class="character-card">
+                <div class="character-number">02</div>
+                <div class="character-link">C-3PO</div>
+            </a>
+
+            <a href="/person/3/" class="character-card">
+                <div class="character-number">03</div>
+                <div class="character-link">R2-D2</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

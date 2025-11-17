@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ person.name }}</title>
+    <style>
+        body { font-family: Arial; background-color: #000; color: #ffe81f; text-align: center; }
+        .card { margin-top: 100px; padding: 30px; border: 2px solid #ffe81f; display: inline-block; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>{{ person.name }}</h1>
+        <p><strong>Height:</strong> {{ person.height }}</p>
+        <p><strong>Mass:</strong> {{ person.mass }}</p>
+        <p><strong>Hair color:</strong> {{ person.hair_color }}</p>
+        <p><strong>Skin color:</strong> {{ person.skin_color }}</p>
+        <p><strong>Eye color:</strong> {{ person.eye_color }}</p>
+        <p><strong>Birth year:</strong> {{ person.birth_year }}</p>
+        <p><strong>Gender:</strong> {{ person.gender }}</p>
+    </div>
+</body>
+</html>
